@@ -21,9 +21,18 @@
   },
   "homepage": "https://github.com/theecn/gad#readme",
   "dependencies": {
-    "vue": "^2.6.10"
+    "scss": "^0.2.4",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "@vue/component-compiler-utils": "^2.6.0",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.17.4",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }
