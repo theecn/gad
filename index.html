@@ -36,13 +36,13 @@
 
 <div id="app">
     {{message}}
-    <gad-button icon="setting" icon-position="right">
+    <gad-button icon="setting" icon-position="right" :loading="loading1" @click="loading1 = !loading1">
         按钮
     </gad-button>
-    <gad-button icon="setting" icon-position="left">
+    <gad-button icon="setting" icon-position="left" :loading="loading2" @click="loading2 = !loading2 ">
         按钮
     </gad-button>
-    <gad-button>按钮3</gad-button>
+    <gad-button :loading="loading3" @click="loading3 = !loading3">按钮3</gad-button>
     <gad-icon name="download"></gad-icon>
 </div>
 <script src="./src/app.js"></script>

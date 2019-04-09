@@ -8,6 +8,9 @@ Vue.component('gad-icon',Icon)
 new Vue({
     el:'#app',
     data:{
-        message:'hello'
+        message:'hello',
+        loading1:false,
+        loading2:true,
+        loading3:false
     }
 })
