@@ -43,7 +43,16 @@
         按钮
     </gad-button>
     <gad-button :loading="loading3" @click="loading3 = !loading3">按钮3</gad-button>
-    <gad-icon name="download"></gad-icon>
+    <gad-button-group>
+        <gad-button icon="left"  >
+            上一页
+        </gad-button>
+        <gad-button>更多</gad-button>
+        <gad-button icon="right" icon-position="right" >
+            下一页
+        </gad-button>
+    </gad-button-group>
+    <gad-icon name="left"></gad-icon>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_1126422_81a8sn3t7mx.js"></script>
