@@ -16,6 +16,8 @@ new Vue({
 })
 //以下为测试代码
 import Chai from 'chai'
+import spy from 'chai-spies'
+Chai.use(spy)
 const expect = Chai.expect
 //测试button的icon
 {
@@ -92,9 +94,11 @@ const expect = Chai.expect
         }
     })
     vm.$mount()
-    vm.on('click',function(){
-        expect(1).to.eq(1)
+    let spy = Chai.spy(function () {
+        console.log('chai spy has benn called')
     })
+    vm.$on('click',spy)
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called()
 }
