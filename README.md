@@ -25,6 +25,12 @@
 ```
 import {Button, ButtonGroup, Icon} from 'gad-test-1234'
 import 'gad-test-1234/dist/index.css'
+export default {
+    name:'app',
+    'gad-button':Button,
+    'gad-buttonGroup':ButtonGroup,
+    'gad-icon':Icon
+}
 ```
 ## 文档
 ## 提问
