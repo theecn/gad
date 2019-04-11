@@ -63,8 +63,8 @@
         <gad-input value="哇斯" read-only></gad-input>
     </div>
     <div class="box">
-        <gad-input value="I" error="姓名太短了"></gad-input>
-        <gad-input value="ok" success="注册成功"></gad-input>
+        <gad-input value="I" error="姓名太短了" @change="inputChange"></gad-input>
+        <gad-input value="ok" success="注册成功" @change="inputChange"></gad-input>
     </div>
 </div>
 <script src="./src/app.js"></script>
