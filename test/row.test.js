@@ -34,6 +34,7 @@ describe('Input', () => {
             expect(getComputedStyle(rows).marginRight).to.eq('-10px')
             done()
         },1500)
+
     })
 
 })
