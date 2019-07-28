@@ -22,9 +22,7 @@ export default {
       default: () => {
         return {
           text: "关闭",
-          callback: toast => {
-            toast.close();
-          }
+          callback: undefined
         };
       }
     }
@@ -41,9 +39,14 @@ export default {
       this.$el.remove();
       this.$destroy();
     },
-    onClose(){
-      this.close()
-      this.closeButton.callback()
+    onClose() {
+      this.close();
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback(this);
+      }
+    },
+    log(){
+        console.log('text')
     }
   }
 };
