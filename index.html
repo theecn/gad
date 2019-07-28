@@ -66,28 +66,7 @@
         <gad-input value="I" error="姓名太短了" @change="inputChange"></gad-input>
         <gad-input value="ok" success="注册成功" @change="inputChange"></gad-input>
     </div>
-    <div class="box">
-        <gad-input v-model="message"></gad-input>
-        <p>{{message}}</p>
-    </div>
-    <div class="box" style="border:1px solid ">
-        <gad-row gutter="30">
-            <gad-col span="2" offset="2">11</gad-col>
-            <gad-col span="20">22</gad-col>
-        </gad-row>
-        <gad-row gutter="10">
-            <gad-col span="4">11</gad-col>
-            <gad-col span="20">22</gad-col>
-        </gad-row>
-        <gad-row gutter="20">
-            <gad-col span="2" >11</gad-col>
-            <gad-col span="20" offset="2">22</gad-col>
-        </gad-row>
-        <gad-row>
-            <gad-col span="24" :ipad="{width:18}" :pc="{width:20}">头</gad-col>
-            <gad-col span="24" :ipad="{width:6}" :pc="{width:4}">尾</gad-col>
-        </gad-row>
-    </div>
+    <button @click="showToast">hhh</button>
 </div>
 <script src="./src/app.js"></script>
 </body>
