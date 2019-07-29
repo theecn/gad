@@ -40,13 +40,14 @@ new Vue({
             console.log(e)
         },
         showToast() {
-            this.$toast('朕知道了，滚吧', {
+            this.$toast('<h1>哈哈哈哈哈11111111</h1>', {
                 closeButton: {
                     text: '知道了',
                     callback(toast) {
                         toast.log()
                     }
-                }
+                },
+                enableHTML:true
             })
         }
     }

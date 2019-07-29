@@ -1,7 +1,10 @@
 <template>
-  <div class="toast">
-    <slot></slot>
-    <div class="line"></div>
+  <div class="toast" ref="wrapper">
+    <div class="message">
+      <slot v-if="!enableHTML"></slot>
+      <div v-else v-html="$slots.default[0]"></div>
+    </div>
+    <div class="line" ref="line"></div>
     <span v-if="closeButton.text" @click="onClose">{{closeButton.text}}</span>
   </div>
 </template>
@@ -25,16 +28,31 @@ export default {
           callback: undefined
         };
       }
+    },
+    enableHTML: {
+      default: false,
+      type: Boolean
     }
   },
   mounted() {
-    if (this.autoClose) {
-      setTimeout(() => {
-        this.close();
-      }, this.delay * 1000);
-    }
+    this.fixStyle();
+    this.operateClose();
   },
   methods: {
+    operateClose() {
+      if (this.autoClose) {
+        setTimeout(() => {
+          this.close();
+        }, this.delay * 1000);
+      }
+    },
+    fixStyle() {
+      this.$nextTick(() => {
+        this.$refs.line.style.height = `${
+          this.$refs.wrapper.getBoundingClientRect().height
+        }px`;
+      });
+    },
     close() {
       this.$el.remove();
       this.$destroy();
@@ -45,15 +63,15 @@ export default {
         this.closeButton.callback(this);
       }
     },
-    log(){
-        console.log('text')
+    log() {
+      console.log("text");
     }
   }
 };
 </script>
 <style scoped lang = "scss">
 $font-size: 14px;
-$toast-height: 40px;
+$toast-min-height: 40px;
 $toast-bg: rgb(0, 0, 0);
 .toast {
   font-size: $font-size;
@@ -68,12 +86,20 @@ $toast-bg: rgb(0, 0, 0);
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgb(0, 0, 0);
   padding: 0 16px;
-  height: $toast-height;
-}
-div.line {
-  height: 100%;
-  border-left: 1px solid #666;
-  margin-left: 16px;
-  margin-right: 16px;
+  min-height: $toast-min-height;
+  line-height: 1.8;
+  .message {
+    padding: 8px 0;
+  }
+  > span {
+    flex-shrink: 0;
+    padding-left: 16px;
+    /* padding-right:16px; */
+  }
+  > div.line {
+    height: 100%;
+    border-left: 1px solid #666;
+    margin-left: 16px;
+  }
 }
 </style>
